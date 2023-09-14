@@ -1,10 +1,14 @@
 import Navbar from "./components/Navbar";
 import { Routes, Route } from "react-router-dom";
 import News from "./components/News";
+import ABC from "./components/abc";
+import { useContext } from "react";
+import { UserContext } from "./context/UserContextProvider";
 
 const App = () => {
-   const pageSize = 6;
    const api_key = import.meta.env.VITE_API_KEY;
+
+   const { country } = useContext(UserContext);
 
    return (
       <div className="font-roboto">
@@ -17,10 +21,8 @@ const App = () => {
                   <News
                      name="Top Headlines"
                      api_key={api_key}
-                     country="in"
+                     country={country}
                      category="general"
-                     page={1}
-                     pageSize={pageSize}
                   />
                }
             />
@@ -31,10 +33,8 @@ const App = () => {
                   <News
                      name="Business"
                      api_key={api_key}
-                     country="in"
+                     country={country}
                      category="business"
-                     page={1}
-                     pageSize={pageSize}
                   />
                }
             />
@@ -45,10 +45,8 @@ const App = () => {
                   <News
                      name="Entertainment"
                      api_key={api_key}
-                     country="in"
+                     country={country}
                      category="entertainment"
-                     page={1}
-                     pageSize={pageSize}
                   />
                }
             />
@@ -59,10 +57,8 @@ const App = () => {
                   <News
                      name="Technology"
                      api_key={api_key}
-                     country="in"
+                     country={country}
                      category="technology"
-                     page={1}
-                     pageSize={pageSize}
                   />
                }
             />
@@ -73,10 +69,8 @@ const App = () => {
                   <News
                      name="Science"
                      api_key={api_key}
-                     country="in"
+                     country={country}
                      category="science"
-                     page={1}
-                     pageSize={pageSize}
                   />
                }
             />
@@ -87,10 +81,8 @@ const App = () => {
                   <News
                      name="Health"
                      api_key={api_key}
-                     country="in"
+                     country={country}
                      category="health"
-                     page={1}
-                     pageSize={pageSize}
                   />
                }
             />
@@ -101,13 +93,12 @@ const App = () => {
                   <News
                      name="Sports"
                      api_key={api_key}
-                     country="in"
+                     country={country}
                      category="sports"
-                     page={1}
-                     pageSize={pageSize}
                   />
                }
             />
+            <Route exact path="/size" element={<ABC />} />
          </Routes>
       </div>
    );
