@@ -1,7 +1,6 @@
 import Navbar from "./components/Navbar";
 import { Routes, Route } from "react-router-dom";
 import News from "./components/News";
-import ABC from "./components/abc";
 import { useContext } from "react";
 import { UserContext } from "./context/UserContextProvider";
 
@@ -98,7 +97,6 @@ const App = () => {
                   />
                }
             />
-            <Route exact path="/size" element={<ABC />} />
          </Routes>
       </div>
    );
